@@ -11,7 +11,9 @@
 ---
 
 I grew up taking things apart to see how they worked, and somewhere along the way I learned to enjoy putting them back together too. That instinct followed me into IT. There's something genuinely satisfying about diagnosing a broken system and walking away with it running clean.
+
 By day I'm a field tech at an MSP, handling networking, sysadmin work, and endpoint support. At home I run a Proxmox-based homelab with Home Assistant, OpenWrt, and whatever I'm currently pulling apart.
+
 Most software today is bloated, packed with tracking, and stuffed with dependencies nobody asked for. I don't think you should need an account to use a tool. The projects I build are my answer to that: single executables, no telemetry, no subscriptions, no nonsense. If that sounds like your kind of software, check out killertools.net.
 
 ---
