@@ -1,6 +1,6 @@
 <div align="center">
 
-![header](header.png)
+![header](header.svg)
 
 [![Website](https://img.shields.io/badge/thekiller.net-D4A017?style=for-the-badge&logo=firefox&logoColor=000000)](https://thekiller.net)
 [![Tools](https://img.shields.io/badge/killertools.net-111111?style=for-the-badge&logo=windowsterminal&logoColor=22C55E)](https://killertools.net)
