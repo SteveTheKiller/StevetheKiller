@@ -1,9 +1,9 @@
 <div align="center">
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=8B0000&height=180&section=header&text=Steve%20the%20Killer&fontSize=50&fontColor=ffffff&fontAlignY=40&desc=Field%20Tech%20%7C%20Tool%20Builder%20%7C%20MSP%20Veteran&descAlignY=60&descSize=16)
+![header](header.png)
 
-[![Website](https://img.shields.io/badge/thekiller.net-8B0000?style=for-the-badge&logo=firefox&logoColor=white)](https://thekiller.net)
-[![Tools](https://img.shields.io/badge/killertools.net-8B0000?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://killertools.net)
+[![Website](https://img.shields.io/badge/thekiller.net-D4A017?style=for-the-badge&logo=firefox&logoColor=000000)](https://thekiller.net)
+[![Tools](https://img.shields.io/badge/killertools.net-111111?style=for-the-badge&logo=windowsterminal&logoColor=22C55E)](https://killertools.net)
 [![Email](https://img.shields.io/badge/steve@thekiller.net-111111?style=for-the-badge&logo=gmail&logoColor=white)](mailto:steve@thekiller.net)
 
 </div>
