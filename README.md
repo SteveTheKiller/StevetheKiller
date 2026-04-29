@@ -4,7 +4,7 @@
 
 [![Website](badge-thekiller.svg)](https://thekiller.net)
 [![Tools](badge-killertools.svg)](https://killertools.net)
-[![Email](https://img.shields.io/badge/steve@thekiller.net-111111?style=for-the-badge&logo=gmail&logoColor=white)](mailto:steve@thekiller.net)
+[![Email](badge-email.svg)](mailto:steve@thekiller.net)
 
 </div>
 
