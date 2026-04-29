@@ -1,6 +1,6 @@
 <div align="center">
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=8B0000,1a0000&height=180&section=header&text=Steve%20the%20Killer&fontSize=50&fontColor=ffffff&fontAlignY=40&fontFamily=Rubik+Wet+Paint&desc=Field%20Tech%20%7C%20Tool%20Builder%20%7C%20MSP%20Veteran&descAlignY=60&descSize=16)
+![header](https://capsule-render.vercel.app/api?type=waving&color=B30000,4a0000&height=180&section=header&text=Steve%20the%20Killer&fontSize=50&fontColor=ffffff&fontAlignY=40&fontFamily=Creepster&desc=Field%20Tech%20%7C%20Tool%20Builder%20%7C%20MSP%20Veteran&descAlignY=60&descSize=16)
 
 [![Website](https://img.shields.io/badge/thekiller.net-8B0000?style=for-the-badge&logo=firefox&logoColor=white)](https://thekiller.net)
 [![Tools](https://img.shields.io/badge/killertools.net-8B0000?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://killertools.net)
@@ -57,7 +57,7 @@ I build tools that do what you tell them to. No accounts, no subscriptions, no t
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SteveTheKiller&show_icons=true&theme=dark&hide_border=true&count_private=true&title_color=cc0000&icon_color=cc0000&text_color=e6edf3&bg_color=0d1117)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SteveTheKiller&show_icons=true&theme=dark&hide_border=true&count_private=true&hide_rank=true&title_color=cc0000&icon_color=cc0000&text_color=e6edf3&bg_color=0d1117)
 &nbsp;
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SteveTheKiller&layout=compact&theme=dark&hide_border=true&title_color=cc0000&text_color=e6edf3&bg_color=0d1117)
 
@@ -67,6 +67,6 @@ I build tools that do what you tell them to. No accounts, no subscriptions, no t
 
 <div align="center">
 
-![footer](https://capsule-render.vercel.app/api?type=waving&color=8B0000,1a0000&height=100&section=footer)
+![footer](https://capsule-render.vercel.app/api?type=waving&color=B30000,4a0000&height=100&section=footer)
 
 </div>
