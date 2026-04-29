@@ -3,7 +3,7 @@
 ![header](header.svg)
 
 [![Website](https://img.shields.io/badge/thekiller.net-D4A017?style=for-the-badge&logo=firefox&logoColor=000000)](https://thekiller.net)
-[![Tools](https://img.shields.io/badge/killertools.net-111111?style=for-the-badge&logo=windowsterminal&logoColor=22C55E)](https://killertools.net)
+[![Tools](https://img.shields.io/badge/killertools.net-22C55E?style=for-the-badge&logo=windowsterminal&logoColor=22C55E&labelColor=111111)](https://killertools.net)
 [![Email](https://img.shields.io/badge/steve@thekiller.net-111111?style=for-the-badge&logo=gmail&logoColor=white)](mailto:steve@thekiller.net)
 
 </div>
