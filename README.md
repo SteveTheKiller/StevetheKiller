@@ -30,8 +30,6 @@ Most software today is bloated, packed with tracking, and stuffed with dependenc
 
 ---
 
-## 🛠️ Stack
-
 ### Languages & Runtimes
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
