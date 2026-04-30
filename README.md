@@ -55,8 +55,6 @@ Most software today is bloated, packed with tracking, and stuffed with dependenc
 
 ---
 
-## 📊 Stats
-
 <div align="center">
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SteveTheKiller&show_icons=true&theme=dark&hide_border=true&count_private=true&hide_rank=true&title_color=cc0000&icon_color=cc0000&text_color=e6edf3&bg_color=0d1117)
