@@ -28,7 +28,6 @@ Most software today is bloated, packed with tracking, and stuffed with dependenc
 | [**killer-scripts**](https://github.com/SteveTheKiller/killer-scripts) | A growing collection of PowerShell scripts designed to make Windows computers actually behave the way you configure them, built for MSP field work and day-to-day endpoint management. | `PowerShell` |
 | [**killer-tools-site**](https://github.com/SteveTheKiller/killer-tools-site) | The source code for killertools.net, home of the Killer Tools suite. | `TypeScript` |
 
----
 
 ### Languages & Runtimes
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
