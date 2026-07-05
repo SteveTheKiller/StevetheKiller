@@ -3,8 +3,8 @@
 ![header](header.svg)
 
 [![Email](badge-email-v2.svg)](mailto:steve@thekiller.net)
-[![Website](badge-thekiller.svg)](https://thekiller.net)
 [![Tools](badge-killertools.svg)](https://killertools.net)
+[![Website](badge-thekiller.svg)](https://thekiller.net)
 <br>
 [![KillerPDF](badge-killerpdf.svg)](https://killerpdf.net)
 [![KillerScan](badge-killerscan.svg)](https://killerscan.net)
