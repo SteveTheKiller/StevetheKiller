@@ -63,6 +63,6 @@ Most software today is bloated, packed with tracking, and stuffed with dependenc
 
 <div align="center">
 
-![footer](https://capsule-render.vercel.app/api?type=waving&color=8B0000&height=100&section=footer)
+![footer](footer.svg)
 
 </div>
