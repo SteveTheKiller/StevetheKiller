@@ -16,7 +16,7 @@ I've been building for the web since the 90s, back when a personal site meant ha
 
 That instinct followed me into IT. By day I'm a field tech at an MSP, handling networking, sysadmin work, and endpoint support, with over six years of full-stack development behind me. At home I run a Proxmox-based homelab with Home Assistant, OpenWrt, and whatever I'm currently pulling apart. There's something satisfying about diagnosing a broken system and walking away with it running clean.
 
-Most software today is bloated, packed with tracking, and stuffed with dependencies nobody asked for. I don't think you should need an account to use a tool. The projects I build are my answer to that: single executables, no telemetry, no subscriptions, no bullshit. If that sounds like your kind of software, check out [KillerTOOLS.net](https://killertools.net).
+Most software today is bloated, packed with tracking, and stuffed with dependencies nobody asked for. I don't think you should need an account to use a tool. The projects I build are my answer to that: single executables, no telemetry, no subscriptions, no bullshit. If that sounds like your kind of software, check out [KillerTools.net](https://killertools.net).
 
 
 ## 🔧 Projects
