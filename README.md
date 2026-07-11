@@ -19,7 +19,7 @@ That instinct followed me into IT. By day I'm a field tech at an MSP, handling n
 Most software today is bloated, packed with tracking, and stuffed with dependencies nobody asked for. I don't think you should need an account to use a tool. The projects I build are my answer to that: single executables, no telemetry, no subscriptions, no bullshit. If that sounds like your kind of software, check out [KillerTools.net](https://killertools.net).
 
 
-## 🔧 Projects
+## Projects
 
 | Project | Description | Tech |
 | :--- | :--- | :--- |
