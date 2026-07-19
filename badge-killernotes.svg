@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="30">
+  <rect x="1" y="1" width="218" height="28" rx="4" fill="#0d0d0d" stroke="#B982E3" stroke-width="1.5"/>
+  <g transform="translate(35,0)">
+    <g fill="none" stroke="#B982E3" stroke-linecap="round" stroke-width="1.5">
+      <rect x="0" y="7" width="14" height="16" rx="1.5"/>
+      <line x1="3.5" y1="12" x2="10.5" y2="12"/>
+      <line x1="3.5" y1="15.5" x2="10.5" y2="15.5"/>
+      <line x1="3.5" y1="19" x2="8" y2="19"/>
+    </g>
+    <text x="22" y="20" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#B982E3" letter-spacing="0.8">KILLERNOTES.NET</text>
+  </g>
+</svg>
