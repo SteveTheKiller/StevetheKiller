@@ -2,7 +2,7 @@
 
 ![header](header.svg)
 
-[![Email](badge-email-v2.svg)](mailto:steve@thekiller.net)
+[![KillerNotes](badge-killernotes.svg)](https://killernotes.net)
 [![Tools](badge-killertools.svg)](https://killertools.net)
 [![Website](badge-thekiller.svg)](https://thekiller.net)
 <br>
@@ -19,15 +19,16 @@ That instinct followed me into IT. By day I'm a field tech at an MSP, handling n
 Most software today is bloated, packed with tracking, and stuffed with dependencies nobody asked for. I don't think you should need an account to use a tool. The projects I build are my answer to that: single executables, no telemetry, no subscriptions, no bullshit. If that sounds like your kind of software, check out [KillerTools.net](https://killertools.net).
 
 
-## Projects
+## 🔧 Projects
 
 | Project | Description | Tech |
 | :--- | :--- | :--- |
 | [**KillerPDF**](https://github.com/SteveTheKiller/KillerPDF) | A full-featured PDF editor for Windows that installs normally or runs fully portable. Licensed under GPLv3 with no account required, no subscription, and no telemetry of any kind. | `C#` |
 | [**KillerScan**](https://github.com/SteveTheKiller/KillerScan) | A fast network scanner built for field techs that combines ARP and ping discovery, port probing, and active fingerprinting across HTTP, SSH, TLS, NetBIOS, and SNMP. Uses a weighted scoring system to classify devices and ships as a single portable executable with no dependencies. | `C#` |
 | [**KillerFind**](https://github.com/SteveTheKiller/KillerFind) | A fast file and content search tool for Windows that supports wildcard filename matching, line-by-line content search, and multiple search terms in a single pass. No indexing, no background services, no setup required. | `C#` |
-| [**killer-scripts**](https://github.com/SteveTheKiller/killer-scripts) | A growing collection of PowerShell scripts designed to make Windows computers actually behave the way you configure them, built for MSP field work and day-to-day endpoint management. | `PowerShell` |
-| [**killer-tools-site**](https://github.com/SteveTheKiller/killer-tools-site) | The source code for killertools.net, home of the Killer Tools suite. | `TypeScript` |
+| [**KillerNotes**](https://github.com/SteveTheKiller/KillerNotes) | An encrypted notepad for techs: instant full-text search, rich text with inline images and real tables, whole-database SQLCipher AES-256 encryption, and notes that tear off as shareable .knote files. Ships as a single signed portable executable. | `C#` |
+| [**killer&#8209;scripts**](https://github.com/SteveTheKiller/killer-scripts) | A growing collection of PowerShell scripts designed to make Windows computers actually behave the way you configure them, built for MSP field work and day-to-day endpoint management. | `PowerShell` |
+| [**killer&#8209;tools&#8209;site**](https://github.com/SteveTheKiller/killer-tools-site) | The source code for killertools.net, home of the Killer Tools suite. | `TypeScript` |
 
 
 ### Languages & Runtimes
