@@ -2,9 +2,11 @@
 
 ![header](header.svg)
 
+[![Website](badge-thekiller.svg)](https://thekiller.net)
+<br>
 [![KillerNotes](badge-killernotes.svg)](https://killernotes.net)
 [![Tools](badge-killertools.svg)](https://killertools.net)
-[![Website](badge-thekiller.svg)](https://thekiller.net)
+[![Killendar](badge-killendar.svg)](https://killendar.net)
 <br>
 [![KillerPDF](badge-killerpdf.svg)](https://killerpdf.net)
 [![KillerScan](badge-killerscan.svg)](https://killerscan.net)
@@ -19,7 +21,7 @@ Now I'm a field tech at an MSP, handling networking, sysadmin work, and endpoint
 Most software today is bloated, tracks you, and drags in dependencies nobody asked for. I don't think you should need an account to use a tool. The projects I build are my answer to that: single executables, no telemetry, no subscriptions, no bullshit. If that sounds like your kind of software, check out [KillerTools.net](https://killertools.net).
 
 
-## 🔧 Projects
+## Projects
 
 | Project | Description | Tech |
 | :--- | :--- | :--- |
@@ -27,6 +29,7 @@ Most software today is bloated, tracks you, and drags in dependencies nobody ask
 | [**KillerScan**](https://github.com/SteveTheKiller/KillerScan) | A fast network scanner built for field techs that combines ARP and ping discovery, port probing, and active fingerprinting across HTTP, SSH, TLS, NetBIOS, and SNMP. Uses a weighted scoring system to classify devices and ships as a single portable executable with no dependencies. | `C#` |
 | [**KillerShell**](https://github.com/SteveTheKiller/KillerShell) | A file browser, terminal, and text editor sharing one window, one tab strip, and one set of keys. Wildcard filename and line-by-line content search with no indexing and no background services, PowerShell and cmd tabs that open in the folder you were browsing, and a plain text editor with syntax highlighting for ps1, reg, ini, logs, and the usual data formats. | `C#` |
 | [**KillerNotes**](https://github.com/SteveTheKiller/KillerNotes) | An encrypted notepad for techs: instant full-text search, rich text with inline images and real tables, whole-database SQLCipher AES-256 encryption, and notes that tear off as shareable .knote files. Ships as a single signed portable executable. | `C#` |
+| [**Killendar**](https://github.com/SteveTheKiller/Killendar) | An encrypted desktop calendar for Windows with month, week, day, and agenda views, colour categories you define yourself, and iCalendar import and export. Appointments live in one SQLite file in your own profile, optionally encrypted at rest with SQLCipher AES-256. No account, no sync service, and nothing phoning home. | `C#` |
 | [**killer&#8209;scripts**](https://github.com/SteveTheKiller/killer-scripts) | A growing collection of PowerShell scripts designed to make Windows computers actually behave the way you configure them, built for MSP field work and day-to-day endpoint management. | `PowerShell` |
 | [**killer&#8209;tools&#8209;site**](https://github.com/SteveTheKiller/killer-tools-site) | The source code for killertools.net, home of the Killer Tools suite. | `TypeScript` |
 
