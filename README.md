@@ -1,16 +1,12 @@
 <div align="center">
 
-![header](header.svg)
+![Steve the Killer](header.png)
 
-[![Website](badge-thekiller.svg)](https://thekiller.net)
+<a href="https://thekiller.net"><img src="note-thekiller.png" width="99%" alt="thekiller.net"></a>
 <br>
-[![KillerNotes](badge-killernotes.svg)](https://killernotes.net)
-[![Tools](badge-killertools.svg)](https://killertools.net)
-[![Killendar](badge-killendar.svg)](https://killendar.net)
+<a href="https://killernotes.net"><img src="note-killernotes.png" width="33%" alt="KillerNotes"></a><a href="https://killertools.net"><img src="note-killertools.png" width="33%" alt="KillerTools"></a><a href="https://killendar.net"><img src="note-killendar.png" width="33%" alt="Killendar"></a>
 <br>
-[![KillerPDF](badge-killerpdf.svg)](https://killerpdf.net)
-[![KillerScan](badge-killerscan.svg)](https://killerscan.net)
-[![KillerShell](badge-killershell.svg)](https://killershell.net)
+<a href="https://killerpdf.net"><img src="note-killerpdf.png" width="33%" alt="KillerPDF"></a><a href="https://killerscan.net"><img src="note-killerscan.png" width="33%" alt="KillerScan"></a><a href="https://killershell.net"><img src="note-killershell.png" width="33%" alt="KillerShell"></a>
 
 </div>
 
@@ -61,12 +57,5 @@ Most software today is bloated, tracks you, and drags in dependencies nobody ask
 ---
 
 <div align="center">
-  <img align="top" src="https://github-readme-stats-neon-theta.vercel.app/api?username=SteveTheKiller&show_icons=true&theme=dark&hide_border=true&count_private=true&hide_rank=true&title_color=cc0000&icon_color=cc0000&text_color=e6edf3&bg_color=0d1117" /><img align="top" src="https://github-readme-stats-neon-theta.vercel.app/api/top-langs/?username=SteveTheKiller&layout=compact&theme=dark&hide_border=true&title_color=cc0000&text_color=e6edf3&bg_color=0d1117&langs_count=8" />
-</div>
-
-
-<div align="center">
-
-![footer](footer.svg)
-
+  <img align="top" src="https://github-readme-stats-neon-theta.vercel.app/api?username=SteveTheKiller&show_icons=true&theme=dark&hide_border=true&count_private=true&hide_rank=true&title_color=B01E1E&icon_color=B01E1E&text_color=e6edf3&bg_color=0d1117" /><img align="top" src="https://github-readme-stats-neon-theta.vercel.app/api/top-langs/?username=SteveTheKiller&layout=compact&theme=dark&hide_border=true&title_color=B01E1E&text_color=e6edf3&bg_color=0d1117&langs_count=8" />
 </div>
