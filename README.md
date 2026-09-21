@@ -12,7 +12,7 @@
 
 I grew up taking things apart to see how they worked, and somewhere along the way I learned to enjoy putting them back together too. I've been building for the web since the 90s, when a personal site meant hand-written HTML and a lot of trial and error. Around 2008 I was designing GTK 2.0 themes for fun and posting them on Ubuntu Forums under the name **Saint Angeles**. That turned into roughly eight years of full-stack development, building sites and applications end to end, before the work pulled me toward the systems underneath them.
 
-After years as a field tech across several companies, handling networking, sysadmin work, and endpoint support, I now work as an AI Solutions Specialist on an MSP's internal AI engineering team, building the tooling I used to wish I had in the field. I also run a Proxmox-based homelab with Home Assistant, OpenWrt, and whatever I'm currently pulling apart.
+After about 8 years as a field tech across several companies, handling networking, sysadmin work, and endpoint support, I now work as an AI Solutions Specialist on a large MSP's internal AI engineering team, building the tooling I used to wish I had in the field. I also run a Proxmox-based homelab with Home Assistant, Pi-Hole, OpenWrt, Umami, and whatever else I'm taking apart at the moment.
 
 Most software today is bloated, tracks you, and drags in dependencies nobody asked for. I don't think you should need an account to use a tool. The projects I build are my answer to that: single executables, no telemetry, no subscriptions, no bullshit. If that sounds like your kind of software, check out [KillerTools.net](https://killertools.net).
 
