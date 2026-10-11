@@ -15,7 +15,7 @@ import io
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 S = 3
 BONE = '#EDE6D3'
@@ -39,12 +39,20 @@ def ellipse(image, bounds, color, width=0):
         d.ellipse(box, fill=color)
 
 
-def place(image, layer, x, y, angle=0):
+def place(image, layer, x, y, angle=0, shadow=False):
     if angle:
         old = layer.size
         layer = layer.rotate(angle, Image.Resampling.BICUBIC, expand=True)
         x -= (layer.width-old[0])/(2*S)
         y -= (layer.height-old[1])/(2*S)
+    if shadow:
+        padding=10*S
+        mask=Image.new('L',(layer.width+2*padding,layer.height+2*padding))
+        mask.paste(layer.getchannel('A'),(padding,padding))
+        mask=mask.filter(ImageFilter.GaussianBlur(2.5*S)).point(lambda alpha: round(alpha*.38))
+        shade=Image.new('RGBA',mask.size)
+        shade.putalpha(mask)
+        image.alpha_composite(shade,(round((x+1.5)*S)-padding,round((y+2.5)*S)-padding))
     image.alpha_composite(layer, (round(x*S), round(y*S)))
 
 
@@ -182,22 +190,22 @@ def header(fonts,smiley,out):
     layer=canvas(304,302)
     polygon(layer,[(0,0),(304,0),(302,302),(1,301)],BONE)
     layer.alpha_composite(icon(smiley,250),(27*S,26*S))
-    place(image,layer,370,70,6)
+    place(image,layer,370,70,6,shadow=True)
     tape(image,436,51,138,30,14)
     shape=[(0,.05),(1,0),(.94,1),(.06,.94)]
     layer=paper(fonts,'STEVE','Lacquer-Regular.ttf',416,110,74,'#E8DFC8',GREEN,shape)
-    place(image,layer,678,155,3)
+    place(image,layer,678,155,3,shadow=True)
     tape(image,837,151,92,24,7)
     layer=paper(fonts,'THE','Punktype.ttf',144,79,46,'#d9c96f',GREEN,[(.04,0),(1,.06),(.96,.96),(0,1)])
-    place(image,layer,1075,156,-6)
+    place(image,layer,1075,156,-6,shadow=True)
     tape(image,1099,144,94,23,-9)
     layer=paper(fonts,'KILLER','Punktype.ttf',380,87,60,'#B01E1E',BONE,[(0,0),(.95,.04),(1,1),(.04,.95)])
-    place(image,layer,1200,191,4)
+    place(image,layer,1200,191,4,shadow=True)
     tape(image,1341,175,92,24,1)
 
     for words,x,y,w,color,angle in [('Technician',526,437,278,'#1a4a6a',3),('Tool Builder',838,456,312,'#277c70',-3),('MSP Veteran',1185,438,290,'#b55721',2)]:
         layer=paper(fonts,words,'KillerSans-Regular.ttf',w,64,34,color,BONE,shape)
-        place(image,layer,x,y,angle)
+        place(image,layer,x,y,angle,shadow=True)
         tape(image,x+w/2-43,y-12,86,24,angle+2)
     save(image,out/'header.png')
 
@@ -231,7 +239,9 @@ def notes(fonts,repos,smiley,out):
             triangle(image,20,83,40,'#2f9e8f',12); halftone(image,535,17,48,'#e63946')
         else:
             ring(image,15,28,52,'#e0a030',10,True); plus(image,547,99,35,'#8e5ba8',-16)
-        polygon(image,points,bg)
+        card=canvas(600,160)
+        polygon(card,points,bg)
+        place(image,card,0,0,shadow=True)
         badge=icon(repos/source,58)
         image.alpha_composite(badge,(round((points[0][0]+27)*S),44*S))
         label=text(fonts,name+'.net','KillerSans-Regular.ttf',35,fg,tw)
