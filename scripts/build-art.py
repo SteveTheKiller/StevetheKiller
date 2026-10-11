@@ -170,6 +170,14 @@ def header(fonts,smiley,out):
     polygon(layer,[(0,0),(58,0),(58,58),(0,58)],'#e76f51')
     place(image,layer,1860,513,-22)
 
+    wave(image,728,84,120,'#7bc950')
+    plus(image,994,48,48,'#e76f51',-14)
+    ellipse(image,(1168,80,1192,104),BONE)
+    triangle(image,1291,41,72,'#8e5ba8',-18)
+    layer=canvas(88,22)
+    polygon(layer,[(0,0),(88,0),(88,22),(0,22)],BONE)
+    place(image,layer,1470,61,12)
+
     # The existing paper angles, colors, and positions form the profile lockup.
     layer=canvas(304,302)
     polygon(layer,[(0,0),(304,0),(302,302),(1,301)],BONE)
