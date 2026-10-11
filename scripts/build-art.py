@@ -46,13 +46,13 @@ def place(image, layer, x, y, angle=0, shadow=False):
         x -= (layer.width-old[0])/(2*S)
         y -= (layer.height-old[1])/(2*S)
     if shadow:
-        padding=10*S
+        padding=22*S
         mask=Image.new('L',(layer.width+2*padding,layer.height+2*padding))
         mask.paste(layer.getchannel('A'),(padding,padding))
-        mask=mask.filter(ImageFilter.GaussianBlur(2.5*S)).point(lambda alpha: round(alpha*.38))
+        mask=mask.filter(ImageFilter.GaussianBlur(4*S)).point(lambda alpha: round(alpha*.82))
         shade=Image.new('RGBA',mask.size)
         shade.putalpha(mask)
-        image.alpha_composite(shade,(round((x+1.5)*S)-padding,round((y+2.5)*S)-padding))
+        image.alpha_composite(shade,(round((x+4)*S)-padding,round((y+7)*S)-padding))
     image.alpha_composite(layer, (round(x*S), round(y*S)))
 
 
