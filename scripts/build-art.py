@@ -186,6 +186,13 @@ def header(fonts,smiley,out):
     polygon(layer,[(0,0),(88,0),(88,22),(0,22)],BONE)
     place(image,layer,1470,61,12)
 
+    ring(image,745,318,70,'#2f9e8f',10)
+    wave(image,917,373,116,'#e63946')
+    triangle(image,1118,320,64,'#e0a030',16)
+    plus(image,1335,355,48,'#3f8efc',-14)
+    halftone(image,1492,306,62,'#8e5ba8')
+    ellipse(image,(1223,406,1243,426),BONE)
+
     # The existing paper angles, colors, and positions form the profile lockup.
     layer=canvas(304,302)
     polygon(layer,[(0,0),(304,0),(302,302),(1,301)],BONE)
@@ -230,7 +237,7 @@ def notes(fonts,repos,smiley,out):
         elif i==2:
             triangle(image,27,97,38,'#3f8efc',16); ring(image,537,16,47,'#2f9e8f',10); plus(image,544,111,33,'#e0a030',-20)
         elif i==3:
-            ring(image,13,73,58,'#e0a030',11,True); plus(image,555,20,34,'#e63946',10)
+            triangle(image,24,88,42,'#2f9e8f',-18); ellipse(image,(15,30,29,44),BONE); plus(image,555,20,34,'#e63946',10)
         elif i==4:
             wave(image,19,43,49,'#7bc950'); halftone(image,533,86,54,'#3f8efc')
         elif i==5:
