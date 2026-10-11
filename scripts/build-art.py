@@ -202,6 +202,8 @@ def notes(fonts,repos,smiley,out):
         ('killerpdf','#20c75c',GREEN,'KillerPDF-1.8/pdf-landing/kp-icon.png',[(97,54),(502,37),(486,106),(113,115)],201,280),
         ('killerscan','#ff9400',GREEN,'KillerScan/scan-landing/ks-icon.png',[(88,42),(514,51),(495,118),(99,103)],188,300),
         ('killershell','#2864c3',BONE,'KillerShell/shell-landing/brand/ksh-icon.png',[(76,57),(521,35),(505,104),(91,117)],177,305),
+        ('killerbench','#EAD900',GREEN,'KillerBench/bench-landing/app-icon.png',[(80,42),(523,54),(507,119),(93,104)],182,310),
+        ('thekiller',GREEN,BONE,smiley,[(83,57),(521,33),(505,104),(97,118)],184,310),
     ]
     for i,(name,bg,fg,source,points,tx,tw) in enumerate(rows):
         image=canvas(600,160)
@@ -215,8 +217,12 @@ def notes(fonts,repos,smiley,out):
             ring(image,13,73,58,'#e0a030',11,True); plus(image,555,20,34,'#e63946',10)
         elif i==4:
             wave(image,19,43,49,'#7bc950'); halftone(image,533,86,54,'#3f8efc')
-        else:
+        elif i==5:
             ring(image,17,85,45,'#e76f51',10); ellipse(image,(68,16,84,32),'#e0a030'); triangle(image,545,28,40,'#8e5ba8',-20)
+        elif i==6:
+            triangle(image,20,83,40,'#2f9e8f',12); halftone(image,535,17,48,'#e63946')
+        else:
+            ring(image,15,28,52,'#e0a030',10,True); plus(image,547,99,35,'#8e5ba8',-16)
         polygon(image,points,bg)
         badge=icon(repos/source,58)
         image.alpha_composite(badge,(round((points[0][0]+27)*S),44*S))
@@ -224,29 +230,6 @@ def notes(fonts,repos,smiley,out):
         button_label(image,label,tx,78,points)
         tape(image,254,30,92,24,3 if i%2 else 1)
         save(image,out/('note-'+name+'.png'))
-
-    image=canvas(1800,160)
-    ring(image,45,39,65,'#2f9e8f',10,True)
-    plus(image,193,95,38,BONE,-12)
-    halftone(image,315,16,70,'#e0a030')
-    wave(image,442,114,60,'#e63946')
-    ellipse(image,(524,28,542,46),'#3f8efc')
-    ring(image,614,19,56,'#e0a030',11)
-    points=[(697,58),(1099,33),(1086,103),(712,119)]
-    polygon(image,points,'#d8a719')
-    image.alpha_composite(icon(smiley,54),(725*S,60*S))
-    label=text(fonts,'thekiller.net','KillerSans-Regular.ttf',37,GREEN,277)
-    button_label(image,label,800,79,points)
-    tape(image,853,28,92,24,5)
-    ellipse(image,(1115,17,1132,34),'#e63946')
-    triangle(image,1132,94,41,'#2f9e8f',-16)
-    plus(image,1246,41,32,'#8e5ba8',-20)
-    wave(image,1350,119,60,'#7bc950')
-    ring(image,1482,24,54,'#e76f51',10)
-    triangle(image,1627,87,38,'#e0a030',14)
-    ellipse(image,(1724,45,1743,64),BONE)
-    save(image,out/'note-thekiller.png')
-
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
