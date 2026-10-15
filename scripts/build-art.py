@@ -8,9 +8,12 @@ Example:
 Requires Pillow. Font files remain in the licensed branding library; only rendered
 artwork is distributed by this repository. Output dimensions match the README assets.
 The smiley inputs are PNG renderings of the site's named SVG files.
+The site notes use the family lockup from make-wordmarks.py, read from the folder
+that holds --fonts.
 """
 import argparse
 from pathlib import Path
+import importlib.util
 import io
 import math
 import os
@@ -69,14 +72,6 @@ def text(fonts, words, face, height, color, max_width=None):
         factor = max_width*S/ink.width
         ink = ink.resize((round(ink.width*factor),round(ink.height*factor)),Image.Resampling.LANCZOS)
     return ink
-
-
-def button_label(image, label, x, center_y, points):
-    top_left, top_right, bottom_right, bottom_left = points
-    top_slope = (top_right[1]-top_left[1])/(top_right[0]-top_left[0])
-    bottom_slope = (bottom_right[1]-bottom_left[1])/(bottom_right[0]-bottom_left[0])
-    angle = -math.degrees(math.atan((top_slope+bottom_slope)/2))
-    place(image,label,x,center_y-label.height/(2*S),angle)
 
 
 def paper(fonts, words, face, w, h, cap, bg, fg, shape):
@@ -217,43 +212,94 @@ def header(fonts,smiley,out):
     save(image,out/'header.png')
 
 
+def wordmarks(fonts):
+    """Load the family wordmark generator that sits beside the licensed fonts."""
+    spec=importlib.util.spec_from_file_location('killer_wordmarks',fonts.parent/'make-wordmarks.py')
+    module=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def app_wordmark(mw,app,height,max_width):
+    """The official embossed app lockup with a matching .net run, fitted to the note."""
+    prefix,suffix,accent=mw.APPS[app][:3]
+    layer,baseline,x=mw.lockup(prefix,suffix,accent)
+    fk,_=mw.lockup_fonts()
+    ImageDraw.Draw(layer).text((x,baseline),'.net',font=fk,fill=mw.BONE+(255,),anchor='ls')
+    layer=mw.shadow(mw.emboss(layer.crop(layer.getbbox())),off=4,blur=4)
+    factor=min(height*S/layer.height,max_width*S/layer.width)
+    return layer.resize((round(layer.width*factor),round(layer.height*factor)),Image.Resampling.LANCZOS)
+
+
+def site_wordmark(fonts,height,max_width):
+    """thekiller.net keeps the site's own taped scraps instead of an app lockup."""
+    the=paper(fonts,'THE','Punktype.ttf',92,52,30,'#d9c96f',GREEN,[(.04,0),(1,.06),(.96,.96),(0,1)])
+    killer=paper(fonts,'KILLER','Punktype.ttf',196,58,38,'#B01E1E',BONE,[(0,0),(.95,.04),(1,1),(.04,.95)])
+    net=text(fonts,'.net','Punktype.ttf',30,BONE)
+    the=the.rotate(-6,Image.Resampling.BICUBIC,expand=True)
+    killer=killer.rotate(4,Image.Resampling.BICUBIC,expand=True)
+    w=the.width+killer.width+net.width-2*S
+    h=max(the.height,killer.height)
+    layer=Image.new('RGBA',(w,h))
+    layer.alpha_composite(the,(0,(h-the.height)//2))
+    layer.alpha_composite(killer,(the.width-6*S,(h-killer.height)//2))
+    layer.alpha_composite(net,(w-net.width,(h+killer.height)//2-net.height-10*S))
+    factor=min(height*S/layer.height,max_width*S/layer.width)
+    return layer.resize((round(layer.width*factor),round(layer.height*factor)),Image.Resampling.LANCZOS)
+
+
 def notes(fonts,repos,smiley,out):
+    mw=wordmarks(fonts)
     rows=[
-        ('killernotes','#793bab',BONE,'KillerNotes/notes-landing/kn-icon.png',[(78,39),(525,51),(505,119),(90,101)],180,310),
-        ('killertools','#27cbbb',GREEN,'Killer Branding/og/killertools-icon.png',[(77,53),(521,38),(505,106),(92,114)],180,310),
-        ('killendar','#b82b2b',BONE,'Killendar/killendar-landing/brand/kd-icon.png',[(97,39),(505,53),(486,121),(108,101)],197,273),
-        ('killerpdf','#20c75c',GREEN,'KillerPDF-1.8/pdf-landing/kp-icon.png',[(97,54),(502,37),(486,106),(113,115)],201,280),
-        ('killerscan','#ff9400',GREEN,'KillerScan/scan-landing/ks-icon.png',[(88,42),(514,51),(495,118),(99,103)],188,300),
-        ('killershell','#2864c3',BONE,'KillerShell/shell-landing/brand/ksh-icon.png',[(76,57),(521,35),(505,104),(91,117)],177,305),
-        ('killerbench','#EAD900',GREEN,'KillerBench/bench-landing/app-icon.png',[(80,42),(523,54),(507,119),(93,104)],182,310),
-        ('thekiller',GREEN,BONE,smiley,[(83,57),(521,33),(505,104),(97,118)],184,310),
+        ('killernotes','KillerNotes','#1d4a46','KillerNotes/notes-landing/kn-icon.png',[(78,39),(525,51),(505,119),(90,101)]),
+        ('killertools','KillerTools','#4a2556','Killer Branding/og/killertools-icon.png',[(77,53),(521,38),(505,106),(92,114)]),
+        ('killendar','Killendar','#1e4a55','Killendar/killendar-landing/brand/kd-icon.png',[(97,39),(505,53),(486,121),(108,101)]),
+        ('killerpdf','KillerPDF','#5a2238','KillerPDF-1.8/pdf-landing/kp-icon.png',[(97,54),(502,37),(486,106),(113,115)]),
+        ('killerscan','KillerScan','#1f3a5c','KillerScan/scan-landing/ks-icon.png',[(88,42),(514,51),(495,118),(99,103)]),
+        ('killershell','KillerShell','#7a2b22','KillerShell/shell-landing/brand/ksh-icon.png',[(76,57),(521,35),(505,104),(91,117)]),
+        ('killerbench','KillerBench','#2a2c62','KillerBench/bench-landing/app-icon.png',[(80,42),(523,54),(507,119),(93,104)]),
+        ('thekiller',None,GREEN,smiley,[(83,57),(521,33),(505,104),(97,118)]),
     ]
-    for i,(name,bg,fg,source,points,tx,tw) in enumerate(rows):
+    for i,(name,app,bg,source,points) in enumerate(rows):
         image=canvas(600,160)
         if i==0:
-            ellipse(image,(56,20,72,36),'#7bc950'); plus(image,17,88,38,'#e0a030',-12); ring(image,538,14,55,'#e76f51',11,True)
+            ellipse(image,(56,14,72,30),'#7bc950'); plus(image,8,96,38,'#e0a030',-12); ring(image,540,6,55,'#e76f51',11,True)
         elif i==1:
-            halftone(image,4,6,56,'#e63946'); wave(image,527,111,48,'#8e5ba8')
+            halftone(image,0,0,56,'#e63946'); wave(image,527,124,48,'#8e5ba8')
         elif i==2:
-            triangle(image,27,97,38,'#3f8efc',16); ring(image,537,16,47,'#2f9e8f',10); plus(image,544,111,33,'#e0a030',-20)
+            triangle(image,27,108,38,'#3f8efc',16); ring(image,540,8,47,'#2f9e8f',10); plus(image,550,114,33,'#e0a030',-20)
         elif i==3:
-            triangle(image,24,88,42,'#2f9e8f',-18); ellipse(image,(15,30,29,44),BONE); plus(image,555,20,34,'#e63946',10)
+            triangle(image,18,98,42,'#2f9e8f',-18); ellipse(image,(15,22,29,36),BONE); plus(image,558,12,34,'#e63946',10)
         elif i==4:
-            wave(image,19,43,49,'#7bc950'); halftone(image,533,86,54,'#3f8efc')
+            wave(image,10,30,49,'#7bc950'); halftone(image,540,96,54,'#3f8efc')
         elif i==5:
-            ring(image,17,85,45,'#e76f51',10); ellipse(image,(68,16,84,32),'#e0a030'); triangle(image,545,28,40,'#8e5ba8',-20)
+            ring(image,8,98,45,'#e76f51',10); ellipse(image,(66,8,82,24),'#e0a030'); triangle(image,550,20,40,'#8e5ba8',-20)
         elif i==6:
-            triangle(image,20,83,40,'#2f9e8f',12); halftone(image,535,17,48,'#e63946')
+            triangle(image,12,98,40,'#2f9e8f',12); halftone(image,540,8,48,'#e63946')
         else:
-            ring(image,15,28,52,'#e0a030',10,True); plus(image,547,99,35,'#8e5ba8',-16)
+            ring(image,8,20,52,'#e0a030',10,True); plus(image,552,110,35,'#8e5ba8',-16)
+        # Taller cards leave room for a larger icon and the full lockup.
+        cy=sum(y for _,y in points)/4
+        cx=sum(x for x,_ in points)/4
+        points=[(cx+(x-cx)*1.05,cy+(y-cy)*1.32) for x,y in points]
+        top_left,top_right,bottom_right,bottom_left=points
         card=canvas(600,160)
         polygon(card,points,bg)
         place(image,card,0,0,shadow=True)
-        badge=icon(repos/source,58)
-        image.alpha_composite(badge,(round((points[0][0]+27)*S),44*S))
-        label=text(fonts,name+'.net','KillerSans-Regular.ttf',35,fg,tw)
-        button_label(image,label,tx,78,points)
-        tape(image,254,30,92,24,3 if i%2 else 1)
+        slope=((top_right[1]-top_left[1])/(top_right[0]-top_left[0])+(bottom_right[1]-bottom_left[1])/(bottom_right[0]-bottom_left[0]))/2
+        angle=-math.degrees(math.atan(slope))
+        inner=min(bottom_left[1]-top_left[1],bottom_right[1]-top_right[1])
+        width=min(top_right[0],bottom_right[0])-max(top_left[0],bottom_left[0])
+        badge=icon(repos/source,round(inner*.86))
+        gap=10*S
+        room=width-24-badge.width/S-gap/S
+        mark=site_wordmark(fonts,inner*.8,room) if app is None else app_wordmark(mw,app,inner*.92,room)
+        group=Image.new('RGBA',(badge.width+gap+mark.width,max(badge.height,mark.height)))
+        group.alpha_composite(badge,(0,(group.height-badge.height)//2))
+        group.alpha_composite(mark,(badge.width+gap,(group.height-mark.height)//2))
+        place(image,group,cx-group.width/(2*S),cy-group.height/(2*S),angle)
+        top=top_left[1]+(top_right[1]-top_left[1])*(300-top_left[0])/(top_right[0]-top_left[0])
+        tape(image,254,top-13,92,24,3 if i%2 else 1)
         save(image,out/('note-'+name+'.png'))
 
 if __name__=='__main__':
