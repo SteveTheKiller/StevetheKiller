@@ -60,4 +60,3 @@ Be prepared to revise an approved contribution after review. Contributions must 
 ## Project-specific guidance
 
 Keep profile copy, links, and generated assets consistent with the projects they describe. Do not announce features or releases that have not been published.
-
