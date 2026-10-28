@@ -24,12 +24,15 @@ Most software today is bloated, tracks you, and drags in dependencies nobody ask
 | [**KillerShell**](https://github.com/SteveTheKiller/KillerShell) | A file browser, terminal, and text editor sharing one window, one tab strip, and one set of keys. Wildcard filename and line-by-line content search with no indexing and no background services, PowerShell and cmd tabs that open in the folder you were browsing, and a plain text editor with syntax highlighting for ps1, reg, ini, logs, and the usual data formats. | `C#` |
 | [**KillerNotes**](https://github.com/SteveTheKiller/KillerNotes) | An encrypted notepad for techs: instant full-text search, rich text with inline images and real tables, whole-database SQLCipher AES-256 encryption, and notes that tear off as shareable .knote files. Ships as a single signed portable executable. | `C#` |
 | [**Killendar**](https://github.com/SteveTheKiller/Killendar) | An encrypted desktop calendar for Windows with month, week, day, and agenda views, colour categories you define yourself, and iCalendar import and export. Appointments live in one SQLite file in your own profile, optionally encrypted at rest with SQLCipher AES-256. No account, no sync service, and nothing phoning home. | `C#` |
+| [**KillerShot**](https://github.com/SteveTheKiller/KillerShot) | A screenshot and screen recording tool for Windows that takes over Print Screen for region, window, monitor, and all-monitor capture from a frozen desktop. Includes a markup editor with true opaque redaction, MP4 and GIF recording, and an encrypted SQLCipher AES-256 library that keeps every capture searchable. | `C#` |
+| [**KillerMCP**](https://github.com/SteveTheKiller/KillerMCP) | One installer and one local MCP connection for KillerTools and the whole Killer app family. Detects the installed apps, exposes their commands as scriptable tools, and registers itself with Claude, Codex, Cursor, Copilot, Gemini CLI, and Windsurf. | `C#` |
 | [**killer&#8209;scripts**](https://github.com/SteveTheKiller/killer-scripts) | A growing collection of PowerShell scripts designed to make Windows computers actually behave the way you configure them, built for MSP field work and day-to-day endpoint management. | `PowerShell` |
 | [**killer&#8209;tools&#8209;site**](https://github.com/SteveTheKiller/killer-tools-site) | The source code for killertools.net, home of the Killer Tools suite. | `TypeScript` |
 
 
 ### Languages & Runtimes
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
