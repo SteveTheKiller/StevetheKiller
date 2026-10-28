@@ -2,13 +2,12 @@
 
 Example:
   python scripts/build-art.py --fonts "../code/Killer Branding/fonts" \
-    --repos ../code --smiley path/to/smiley-03-ransom-face.png \
-    --site-smiley path/to/smiley-01-slit-smile.png --output ./art-preview
+    --repos ../code --smiley path/to/smiley-03-ransom-face.png --output ./art-preview
 
 Requires Pillow. Font files remain in the licensed branding library; only rendered
 artwork is distributed by this repository. Output dimensions match the README assets.
-The smiley inputs are PNG renderings of the site's named SVG files.
-The site notes use the family lockup from make-wordmarks.py, read from the folder
+The smiley input is a PNG rendering of the site's named SVG file.
+The app notes use the family lockup from make-wordmarks.py, read from the folder
 that holds --fonts.
 """
 import argparse
@@ -231,24 +230,7 @@ def app_wordmark(mw,app,height,max_width):
     return layer.resize((round(layer.width*factor),round(layer.height*factor)),Image.Resampling.LANCZOS)
 
 
-def site_wordmark(fonts,height,max_width):
-    """thekiller.net keeps the site's own taped scraps instead of an app lockup."""
-    the=paper(fonts,'THE','Punktype.ttf',92,52,30,'#d9c96f',GREEN,[(.04,0),(1,.06),(.96,.96),(0,1)])
-    killer=paper(fonts,'KILLER','Punktype.ttf',196,58,38,'#B01E1E',BONE,[(0,0),(.95,.04),(1,1),(.04,.95)])
-    net=text(fonts,'.net','Punktype.ttf',30,BONE)
-    the=the.rotate(-6,Image.Resampling.BICUBIC,expand=True)
-    killer=killer.rotate(4,Image.Resampling.BICUBIC,expand=True)
-    w=the.width+killer.width+net.width-2*S
-    h=max(the.height,killer.height)
-    layer=Image.new('RGBA',(w,h))
-    layer.alpha_composite(the,(0,(h-the.height)//2))
-    layer.alpha_composite(killer,(the.width-6*S,(h-killer.height)//2))
-    layer.alpha_composite(net,(w-net.width,(h+killer.height)//2-net.height-10*S))
-    factor=min(height*S/layer.height,max_width*S/layer.width)
-    return layer.resize((round(layer.width*factor),round(layer.height*factor)),Image.Resampling.LANCZOS)
-
-
-def notes(fonts,repos,smiley,out):
+def notes(fonts,repos,out):
     mw=wordmarks(fonts)
     rows=[
         ('killernotes','KillerNotes','#1d4a46','KillerNotes/notes-landing/kn-icon.png',[(78,39),(525,51),(505,119),(90,101)]),
@@ -257,8 +239,8 @@ def notes(fonts,repos,smiley,out):
         ('killerpdf','KillerPDF','#5a2238','KillerPDF-1.8/pdf-landing/kp-icon.png',[(97,54),(502,37),(486,106),(113,115)]),
         ('killerscan','KillerScan','#1f3a5c','KillerScan/scan-landing/ks-icon.png',[(88,42),(514,51),(495,118),(99,103)]),
         ('killershell','KillerShell','#7a2b22','KillerShell/shell-landing/brand/ksh-icon.png',[(76,57),(521,35),(505,104),(91,117)]),
-        ('killerbench','KillerBench','#2a2c62','KillerBench/bench-landing/app-icon.png',[(80,42),(523,54),(507,119),(93,104)]),
-        ('thekiller',None,GREEN,smiley,[(83,57),(521,33),(505,104),(97,118)]),
+        ('killerbench','KillerBench','#2a2c62','KillerBench/bench-landing/kb-icon.png',[(80,42),(523,54),(507,119),(93,104)]),
+        ('killershot','KillerShot','#24502e','KillerShot/shot-landing/kst-icon.png',[(83,57),(521,33),(505,104),(97,118)]),
     ]
     for i,(name,app,bg,source,points) in enumerate(rows):
         image=canvas(600,160)
@@ -293,7 +275,7 @@ def notes(fonts,repos,smiley,out):
         badge=icon(repos/source,round(inner*.86))
         gap=10*S
         room=width-24-badge.width/S-gap/S
-        mark=site_wordmark(fonts,inner*.8,room) if app is None else app_wordmark(mw,app,inner*.92,room)
+        mark=app_wordmark(mw,app,inner*.92,room)
         group=Image.new('RGBA',(badge.width+gap+mark.width,max(badge.height,mark.height)))
         group.alpha_composite(badge,(0,(group.height-badge.height)//2))
         group.alpha_composite(mark,(badge.width+gap,(group.height-mark.height)//2))
@@ -307,10 +289,9 @@ if __name__=='__main__':
     p.add_argument('--fonts',required=True,type=Path)
     p.add_argument('--repos',required=True,type=Path)
     p.add_argument('--smiley',required=True,type=Path)
-    p.add_argument('--site-smiley',required=True,type=Path,help='PNG rendering of smiley-01-slit-smile.svg')
     p.add_argument('--output',required=True,type=Path)
     args=p.parse_args()
     if not args.smiley.exists():
         p.error('--smiley must point to the PNG rendering of the site smiley')
     header(args.fonts,args.smiley,args.output)
-    notes(args.fonts,args.repos,args.site_smiley,args.output)
+    notes(args.fonts,args.repos,args.output)
